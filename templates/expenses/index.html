@@ -50,9 +50,11 @@
                     </div>
                     <div class="expense_details">
                         <span class="expense_title">{{ "R$ %.2f"|format(expense.value) }}</span>
-                        {% if expense.paid %}
-                            <span class="expense_text">Não paga</span>
                       
+                        {% if expense.paid == True %}
+                              <span class="expense_text">pago</span>
+                        {% elif expense.paid == False %}
+                              <span class="expense_text">não pago</span>
                         {% elif expense.due_date < today %}
                             <span class="expense_text">vencido</span>
                         {% else %}
